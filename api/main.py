@@ -8,7 +8,7 @@ import tornado.ioloop
 import tornado.options
 
 # Handlers for URLS
-from handlers import person, error
+from handlers import person
 
 # Settings
 from settings import Settings
