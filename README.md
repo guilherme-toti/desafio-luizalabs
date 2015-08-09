@@ -12,13 +12,14 @@ Create an folder for this project and navigate into the folder
 $ mkdir labs-api && cd labs-api
 ```
 Now you can:
+
 Clone this repository inside the folder that you just created
 ```
 $ git clone https://github.com/guilherme-toti/desafio-luizalabs.git .
 ```
 Or [download this repository](https://github.com/guilherme-toti/desafio-luizalabs/archive/master.zip) as ZIP file and extract it into the folder you created.
 
-Now if you are using virtualenv, create a virtualenv and activate it
+Now if you are using virtualenv, create a virtualenv and activate it, if you don't, just go to next step
 ```
 $ virtualenv venv && source venv/bin/activate
 ```
