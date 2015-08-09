@@ -11,7 +11,6 @@ import tornado.options
 from handlers import person
 
 # Settings
-from settings import Settings
 from database import init_db
 
 # Init the database
