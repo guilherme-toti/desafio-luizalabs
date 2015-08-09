@@ -87,11 +87,11 @@ Now your API is running on: http://localhost:8888
 
 There is two ways to include a user:
 ```
-$ curl ­-X POST ­-F facebookId=<id_here> http://localhost:8888/person/
+$ curl -X POST -F facebookId=<id_here> http://localhost:8888/person/
 ```
 or 
 ```
-$ curl ­-X POST http://localhost:8888/person/<id_here>
+$ curl -X POST http://localhost:8888/person/<id_here>
 ```
 
 
@@ -127,7 +127,7 @@ The response will be a JSON:
 
 To delete a user, you just need to:
 ```
-$ curl ­-X DELETE http://localhost:8888/person/<id_here>
+$ curl -X DELETE http://localhost:8888/person/<id_here>
 ```
 
 
