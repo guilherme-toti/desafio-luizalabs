@@ -29,16 +29,24 @@ class Person(tornado.web.RequestHandler):
 			check = db_session.query(User).get(facebook_id)
 			# If this ID doesn't exist, add it
 			if not check:
-				# Create the User object
-				user = User(id=int(facebook_id), name="Teste", username="Testeee", gender="Male")
-				# Add object to session
-				db_session.add(user)
+				# Import Facebook API helper
+				from helpers import facebook
+				# Instantiate the Facebook API helper passing the user ID
+				fbAPI = facebook.FacebookAPI(int(facebook_id))
+				# Get user data
+				user_data = fbAPI.getUserData()
 
-				try:
-					# Try to commit changes
-					db_session.commit()
-				except Exception, e:
-					raise tornado.web.HTTPError(500, "Error while inserting data.")
+				if user_data:
+					# Create the User object
+					user = User(id=user_data['id'], name=user_data['name'])
+					# Add object to session
+					db_session.add(user)
+
+					try:
+						# Try to commit changes
+						db_session.commit()
+					except Exception, e:
+						raise tornado.web.HTTPError(500, "Error while inserting data.")
 		else:
 			raise tornado.web.HTTPError(500, "A Facebook ID is required.")
 
