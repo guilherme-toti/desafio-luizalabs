@@ -50,6 +50,8 @@ class Person(tornado.web.RequestHandler):
 		else:
 			raise tornado.web.HTTPError(500, "A Facebook ID is required.")
 
+		self.set_status(201)
+
 	def delete(self, facebook_id):
 		# Get facebook ID
 		facebook_id = facebook_id or self.get_argument('facebookId', None)
@@ -69,4 +71,6 @@ class Person(tornado.web.RequestHandler):
 					raise tornado.web.HTTPError(500, "Error while inserting data.")
 		else:
 			raise tornado.web.HTTPError(500, "A Facebook ID is required.")
+
+		self.set_status(204)
 
